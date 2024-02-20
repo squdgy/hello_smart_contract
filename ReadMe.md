@@ -10,6 +10,11 @@ npx hardhat
 npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
 ```
 
+run hardhat (must be running to deploy and execute the smart contract)
+```
+npx hardhat node
+```
+
 ## Deploy 
 local: `npx hardhat run --network localhost scripts/deploy.js`
 sepolia: `npx hardhat run --network sepolia scripts/deploy.js`
@@ -20,9 +25,9 @@ npx hardhat console --network localhost
 
 const HelloWorld = await ethers.getContractFactory('HelloWorld');
 
-const helloWorld2 = await HelloWorld.attach('0x5fbdb2315678afecb367f032d93f642f64180aa3'); // put contract address here
+const helloWorld = await HelloWorld.attach('0x5FbDB2315678afecb367f032d93F642f64180aa3'); // put contract address here
 
-await helloWorld2.saveName('Orlando');
+await helloWorld.saveName('Orlando');
 
 await helloWorld.doSomething('Howdy');
 ```
